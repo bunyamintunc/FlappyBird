@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         let elemanBottom=randomHeight
 
         const eleman=document.createElement('div');
-        eleman.classList.add('eleman')
+        eleman.classList.add('obstacle')
         gameDisplay.appendChild(eleman);
         eleman.style.left=elemanLeft + 'px'
         eleman.style.bottom=elemanBottom + 'px'
@@ -49,7 +49,8 @@ document.addEventListener('DOMContentLoaded',()=>{
                 clearInterval(timeId)
                 gameDisplay.removeChild(eleman)
             }
-            if(elemanLeft>200&&elemanLeft<280 &&birdLeft==220||birdBottom===0){
+            if(elemanLeft>200&&elemanLeft<280 &&birdLeft==220&&
+                birdBottom < elemanBottom+153 ||birdBottom===0){
                   gameOver()
                   clearInterval(timeId)
             }
